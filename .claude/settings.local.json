@@ -1,7 +1,25 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"echo connected && pm2 list && ls /var/www/ 2>/dev/null || ls /root/ | head -20\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cd /var/www/home-services-app && git remote -v 2>/dev/null && ls -la | head -20\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"ls /var/www/home-services-app/\")",
+      "Bash(where pscp:*)",
+      "Bash(pscp -pw \"MigraOnline#24\" \"d:\\\\Projects\\\\home-services-app\\\\app\\\\globals.css\" root@50.6.230.87:/var/www/home-services-app/app/globals.css)",
+      "Bash(pscp -pw \"MigraOnline#24\" \"d:\\\\Projects\\\\home-services-app\\\\app\\\\layout.tsx\" root@50.6.230.87:/var/www/home-services-app/app/layout.tsx)",
+      "Bash(pscp -pw \"MigraOnline#24\" \"d:\\\\Projects\\\\home-services-app\\\\app\\\\page.tsx\" root@50.6.230.87:/var/www/home-services-app/app/page.tsx)",
+      "Bash(pscp -pw \"MigraOnline#24\" \"d:\\\\Projects\\\\home-services-app\\\\app\\\\book\\\\page.tsx\" root@50.6.230.87:/var/www/home-services-app/app/book/page.tsx)",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cd /var/www/home-services-app && npm run build 2>&1\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"pm2 restart home-services-app && pm2 list\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"ss -tlnp | grep node\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"ss -tlnp | grep 33\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cat /etc/nginx/conf.d/home-services-app.conf\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cat /etc/nginx/conf.d/default.conf | head -30\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cat /etc/nginx/conf.d/reportegenesis-ddns.conf\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"nginx -t && nginx -s reload\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"certbot --nginx -d todocleanservicios.sytes.net 2>&1\")",
+      "Bash(plink -pw \"MigraOnline#24\" root@50.6.230.87 \"cat /etc/nginx/conf.d/todocleanservicios-ddns.conf\")"
     ],
     "deny": [],
     "ask": []

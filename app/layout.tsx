@@ -12,6 +12,7 @@ export default function RootLayout({
         {/* Navigation Bar */}
 
         <nav
+  className="nav-wrapper"
   style={{
     display: "flex",
     justifyContent: "space-between",
@@ -27,6 +28,7 @@ export default function RootLayout({
           {/* Logo */}
 
           <img
+  className="nav-logo"
   src="/logo.png"
   style={{
     height: "230px",
@@ -38,7 +40,7 @@ export default function RootLayout({
 
           {/* Menu */}
 
-          <div style={{ display: "flex", gap: "30px" }}>
+          <div className="nav-menu" style={{ display: "flex", gap: "30px" }}>
             <a href="/" style={{ color: "white", textDecoration: "none" }}>Inicio</a>
             <a href="/book" style={{ color: "white", textDecoration: "none" }}>Reservar</a>
             <a href="#" style={{ color: "white", textDecoration: "none" }}>Servicios</a>

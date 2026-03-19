@@ -1,6 +1,7 @@
 export default function BookPage() {
   return (
     <main
+      className="book-main"
       style={{
         fontFamily: "Arial",
         background: "#f5f5f5",
@@ -12,6 +13,7 @@ export default function BookPage() {
       }}
     >
       <div
+        className="book-card"
         style={{
           background: "white",
           padding: "50px",

@@ -34,13 +34,14 @@ export default function Home() {
 
         {/* HERO CONTENT */}
 
-        <div style={{ position: "relative", zIndex: 2, maxWidth: "900px" }}>
+        <div className="hero-content" style={{ position: "relative", zIndex: 2, maxWidth: "900px" }}>
 
-          <p style={{ fontSize: "22px", marginBottom: "15px" }}>
+          <p className="hero-subtitle" style={{ fontSize: "22px", marginBottom: "15px" }}>
             Rápido, Económico y Sin Complicaciones
           </p>
 
           <h1
+            className="hero-title"
             style={{
               fontSize: "70px",
               lineHeight: "1.1",
@@ -53,7 +54,7 @@ export default function Home() {
 
             <br />
 
-            <span style={{ fontSize: "60px" }}>
+            <span className="hero-title-sub" style={{ fontSize: "60px" }}>
               al Alcance de tu Mano
             </span>
           </h1>
@@ -66,6 +67,7 @@ export default function Home() {
       {/* OPTIONS SECTION */}
 
 <section
+  className="options-section"
   style={{
     marginTop: "-80px",
     marginBottom: "-80px",
@@ -78,6 +80,7 @@ export default function Home() {
 >
 
         <div
+          className="options-container"
           style={{
             display: "flex",
             maxWidth: "1200px",
@@ -92,6 +95,7 @@ export default function Home() {
           {/* GREEN BOX */}
 
           <div
+            className="options-green"
             style={{
               background: "#16a34a",
               color: "white",
@@ -122,6 +126,7 @@ export default function Home() {
           {/* CONTRACTOR */}
 
           <div
+            className="options-col"
             style={{
               background: "#f5f5f5",
               padding: "50px",
@@ -162,6 +167,7 @@ export default function Home() {
           {/* CUSTOMER */}
 
           <div
+            className="options-col"
             style={{
               background: "#f5f5f5",
               padding: "50px",
@@ -207,6 +213,7 @@ export default function Home() {
       {/* HOW IT WORKS */}
 
       <section
+        className="section-padded"
         style={{
           backgroundImage: "url('/publicgrass-bg.jpg.jpg')",
           backgroundSize: "cover",
@@ -233,7 +240,7 @@ export default function Home() {
 
         <div style={{ position: "relative", zIndex: 2 }}>
 
-          <h2 style={{ fontSize: "42px", marginBottom: "15px" }}>
+          <h2 className="section-h2" style={{ fontSize: "42px", marginBottom: "15px" }}>
             Cuidado del Césped Simplificado
           </h2>
 
@@ -254,6 +261,7 @@ export default function Home() {
             {/* CARD 1 */}
 
 <div
+className="how-card"
 style={{
 background: "white",
 color: "#222",
@@ -317,6 +325,7 @@ COMENZAR
             {/* CARD 2 */}
 
 <div
+className="how-card"
 style={{
 background: "white",
 color: "#222",
@@ -380,6 +389,7 @@ PROGRAMAR SERVICIO
             {/* CARD 3 */}
 
             <div
+              className="how-card"
               style={{
                 background: "white",
                 color: "#222",
@@ -419,9 +429,11 @@ PROGRAMAR SERVICIO
         </div>
 
       </section>
+
 {/* TESTIMONIALS */}
 
 <section
+className="section-padded"
 style={{
 padding: "120px 40px",
 textAlign: "center",
@@ -430,6 +442,7 @@ background: "#f5f5f5"
 >
 
 <h2
+className="section-h2"
 style={{
 fontSize: "42px",
 marginBottom: "60px",
@@ -455,6 +468,7 @@ flexWrap: "wrap"
 {/* REVIEW 1 */}
 
 <div
+className="review-card"
 style={{
 background: "white",
 padding: "40px",
@@ -469,7 +483,7 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 </div>
 
 <p style={{ color: "#444", lineHeight: "1.6", marginBottom: "20px" }}>
-“Este servicio me salvó los fines de semana. Reservar fue muy fácil y mi jardín siempre queda perfecto. ¡Lo recomiendo totalmente!”
+"Este servicio me salvó los fines de semana. Reservar fue muy fácil y mi jardín siempre queda perfecto. ¡Lo recomiendo totalmente!"
 </p>
 
 <strong>Carlos M.</strong>
@@ -480,6 +494,7 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 {/* REVIEW 2 */}
 
 <div
+className="review-card"
 style={{
 background: "white",
 padding: "40px",
@@ -494,7 +509,7 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 </div>
 
 <p style={{ color: "#444", lineHeight: "1.6", marginBottom: "20px" }}>
-“No tengo tiempo para cortar el césped, pero ahora mi jardín siempre luce profesional cada semana. Excelente servicio.”
+"No tengo tiempo para cortar el césped, pero ahora mi jardín siempre luce profesional cada semana. Excelente servicio."
 </p>
 
 <strong>María R.</strong>
@@ -505,6 +520,7 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 {/* REVIEW 3 */}
 
 <div
+className="review-card"
 style={{
 background: "white",
 padding: "40px",
@@ -519,7 +535,7 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 </div>
 
 <p style={{ color: "#444", lineHeight: "1.6", marginBottom: "20px" }}>
-“El contratista siempre llega a tiempo y hace un trabajo excelente. Mi jardín nunca se ha visto mejor.”
+"El contratista siempre llega a tiempo y hace un trabajo excelente. Mi jardín nunca se ha visto mejor."
 </p>
 
 <strong>Jorge P.</strong>
@@ -529,9 +545,11 @@ boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
 </div>
 
 </section>
+
 {/* CONTRACTOR SECTION */}
 
 <section
+className="section-padded"
 style={{
 background: "#1f7a3a",
 padding: "120px 40px",
@@ -541,6 +559,7 @@ textAlign: "center"
 >
 
 <h2
+className="section-h2"
 style={{
 fontSize: "44px",
 marginBottom: "60px"
@@ -562,6 +581,7 @@ flexWrap: "wrap"
 {/* BOX 1 */}
 
 <div
+className="contractor-box"
 style={{
 width: "280px",
 background: "#1f7a3a",
@@ -647,6 +667,7 @@ CONVIÉRTETE EN CONTRATISTA
 {/* BOX 2 */}
 
 <div
+className="contractor-box"
 style={{
 width: "280px",
 background: "#1f7a3a",
@@ -705,6 +726,7 @@ CORTA CÉSPED Y GANA DINERO
 {/* BOX 3 */}
 
 <div
+className="contractor-box"
 style={{
 width: "280px",
 background: "#1f7a3a",
@@ -763,6 +785,7 @@ TRABAJA A TU PROPIO HORARIO
 {/* BOX 4 */}
 
 <div
+className="contractor-box"
 style={{
 width: "280px",
 background: "#1f7a3a",
