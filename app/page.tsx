@@ -64,6 +64,26 @@ export default function Home() {
       </section>
 
 
+      {/* MOBILE CATEGORY ICONS */}
+
+      <section className="category-section">
+        <div className="category-bar">
+          {[
+            { icon: "🌿", label: "Jardín" },
+            { icon: "🧹", label: "Limpieza" },
+            { icon: "🪚", label: "Poda" },
+            { icon: "💧", label: "Riego" },
+            { icon: "➕", label: "Más" },
+          ].map(({ icon, label }) => (
+            <a key={label} href="/book" className="category-item">
+              <div className="category-icon-circle">{icon}</div>
+              <span className="category-label">{label}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+
+
       {/* OPTIONS SECTION */}
 
 <section

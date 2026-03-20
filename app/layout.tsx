@@ -1,4 +1,6 @@
 import "./globals.css";
+import NavBar from "./components/NavBar";
+import BottomNav from "./components/BottomNav";
 
 export default function RootLayout({
   children,
@@ -10,52 +12,15 @@ export default function RootLayout({
       <body>
 
         {/* Navigation Bar */}
-
-        <nav
-  className="nav-wrapper"
-  style={{
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    padding: "15px 40px",
-    position: "absolute",
-    width: "100%",
-    zIndex: 1000,
-    color: "white"
-  }}
->
-
-          {/* Logo */}
-
-          <img
-  className="nav-logo"
-  src="/logo.png"
-  style={{
-    height: "230px",
-    objectFit: "contain",
-    marginTop: "-60px",
-    marginLeft: "-30px"
-  }}
-/>
-
-          {/* Menu */}
-
-          <div className="nav-menu" style={{ display: "flex", gap: "30px" }}>
-            <a href="/" style={{ color: "white", textDecoration: "none" }}>Inicio</a>
-            <a href="/book" style={{ color: "white", textDecoration: "none" }}>Reservar</a>
-            <a href="#" style={{ color: "white", textDecoration: "none" }}>Servicios</a>
-            <a href="#" style={{ color: "white", textDecoration: "none" }}>Contacto</a>
-          </div>
-
-        </nav>
+        <NavBar />
 
         {children}
 
-        {/* WhatsApp Floating Button */}
-
+        {/* WhatsApp Floating Button — desktop only */}
         <a
           href="https://wa.me/50761234567?text=Hola%20quiero%20información%20sobre%20sus%20servicios"
           target="_blank"
+          className="whatsapp-fab"
           style={{
             position: "fixed",
             bottom: "20px",
@@ -66,11 +31,15 @@ export default function RootLayout({
             borderRadius: "50px",
             textDecoration: "none",
             fontWeight: "bold",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.2)"
+            boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+            zIndex: 999,
           }}
         >
           WhatsApp
         </a>
+
+        {/* Bottom Navigation — mobile only */}
+        <BottomNav />
 
       </body>
     </html>
