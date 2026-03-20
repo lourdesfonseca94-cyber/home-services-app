@@ -87,6 +87,7 @@ export default function Home() {
       {/* OPTIONS SECTION */}
 
 <section
+  id="servicios"
   className="options-section"
   style={{
     marginTop: "-80px",
