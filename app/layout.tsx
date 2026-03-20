@@ -1,6 +1,20 @@
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import BottomNav from "./components/BottomNav";
+import type { Metadata, Viewport } from "next";
+
+export const metadata: Metadata = {
+  title: "Green Leaf Services — Corte de Césped",
+  description: "Servicios de corte de césped rápidos, económicos y sin complicaciones.",
+};
+
+export const viewport: Viewport = {
+  // viewport-fit=cover: lets content extend behind iOS notch/home indicator
+  // so our bottom nav safe-area CSS can take effect
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export default function RootLayout({
   children,

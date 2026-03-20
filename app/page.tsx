@@ -5,6 +5,7 @@ export default function Home() {
       {/* HERO */}
 
       <section
+        className="hero-section-mobile"
         style={{
           backgroundImage: "url('/man-cutting-grass-with-lawn-mover-back-yard.jpg')",
           backgroundSize: "cover",
@@ -59,6 +60,12 @@ export default function Home() {
             </span>
           </h1>
 
+        </div>
+
+        {/* Scroll hint — mobile only, hints content is below */}
+        <div className="scroll-hint">
+          <span className="scroll-hint-arrow">↓</span>
+          <span>Ver más</span>
         </div>
 
       </section>
