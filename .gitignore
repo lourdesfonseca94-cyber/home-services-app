@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# server-side data store (runtime JSON files, not committed)
+/data/bookings.json
+/data/workers.json

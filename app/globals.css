@@ -1,386 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --green: #16a34a;
-  --green-dark: #1f7a3a;
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+  /* TodoClean Blue/Purple Design System (from reference) */
+  --color-surface:                   #f9f5ff;
+  --color-surface-container-lowest:  #ffffff;
+  --color-surface-container-low:     #f2efff;
+  --color-surface-container-high:    #e2dfff;
+  --color-surface-variant:           #dcd9ff;
+
+  --color-on-surface:         #2b2a51;
+  --color-on-surface-variant: #585781;
+
+  --color-primary:           #0546ed;
+  --color-on-primary:        #ffffff;
+  --color-primary-dim:       #003cd3;
+  --color-primary-container: #849aff;
+
+  --color-secondary: #514eb6;
+  --color-tertiary:  #913983;
+
+  --color-outline:         #74739e;
+  --color-outline-variant: #aaa9d7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .glass-header {
+    @apply bg-[#f9f5ff]/80 backdrop-blur-[20px];
   }
-}
-
-/* ============================
-   BASE / GLOBAL
-   ============================ */
-
-html {
-  /* Smooth scrolling for anchor links (HIG: predictable navigation) */
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
-  /* System font stack — Apple HIG recommends platform-native fonts */
-  line-height: 1.6;
-  -webkit-text-size-adjust: 100%; /* Prevent font scaling on orientation change */
+  .primary-gradient {
+    background: linear-gradient(135deg, #0546ed 0%, #849aff 100%);
+  }
+  .dark-gradient {
+    background: linear-gradient(135deg, #2b2a51 0%, #514eb6 100%);
+  }
+  .custom-shadow {
+    box-shadow: 0 8px 32px rgba(43, 42, 81, 0.08);
+  }
+  .card-shadow {
+    box-shadow: 0 2px 16px rgba(43, 42, 81, 0.09);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .pt-safe-top    { padding-top:    env(safe-area-inset-top,    1rem); }
+  .pb-safe-bottom { padding-bottom: env(safe-area-inset-bottom, 2rem); }
 }
 
 * {
   box-sizing: border-box;
-  /* Remove iOS tap highlight — apps use their own feedback patterns */
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Accessible focus ring — visible for keyboard/switch users */
-:focus-visible {
-  outline: 3px solid var(--green);
-  outline-offset: 2px;
-  border-radius: 4px;
-}
+html { scroll-behavior: smooth; }
 
-/* ============================
-   TOUCH TARGETS
-   Apple HIG: 44×44pt minimum
-   Material Design: 48×48dp minimum
-   ============================ */
-
-a, button {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* ============================
-   WHATSAPP FAB
-   ============================ */
-
-.whatsapp-fab {
-  display: flex !important;
-  min-height: 44px !important;
-}
-
-/* ============================
-   BOTTOM NAV (mobile only)
-   ============================ */
-
-.bottom-nav {
-  display: none;
-}
-
-.bottom-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  text-decoration: none;
-  color: #888;
-  flex: 1;
-  /* Min touch target height */
-  min-height: 44px;
-  padding: 6px 0;
-  transition: color 0.15s ease;
-}
-
-.bottom-nav-item.active {
-  color: var(--green);
-}
-
-/* Tap feedback */
-.bottom-nav-item:active {
-  opacity: 0.6;
-}
-
-.bottom-nav-icon {
-  font-size: 22px;
-  line-height: 1;
-}
-
-.bottom-nav-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2px;
-}
-
-/* ============================
-   CATEGORY SECTION (mobile only)
-   ============================ */
-
-.category-section {
-  display: none;
-}
-
-.category-bar {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px 12px 14px;
-  background: white;
-  border-bottom: 1px solid #eee;
-}
-
-.category-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: #333;
-  /* Min touch target */
-  min-width: 52px;
-  padding: 4px;
-}
-
-/* Tap feedback */
-.category-item:active .category-icon-circle {
-  background: #d1fae5;
-  transform: scale(0.95);
-}
-
-.category-icon-circle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #f0faf4;
-  border: 1.5px solid #d1fae5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  transition: background 0.15s, transform 0.1s;
-}
-
-.category-label {
-  font-size: 12px;
-  font-weight: 500;
-  color: #555;
-}
-
-/* ============================
-   SCROLL HINT ARROW (hero)
-   ============================ */
-
-.scroll-hint {
-  display: none;
-}
-
-/* ============================
-   RESPONSIVE — MOBILE FIRST
-   ============================ */
-
-@media (max-width: 768px) {
-
-  /* Body padding for bottom nav + iOS home indicator safe area */
-  body {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
-  }
-
-  /* BOTTOM NAV — show + respect iOS home indicator */
-  .bottom-nav {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-top: 1px solid #e5e7eb;
-    z-index: 1000;
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
-    /* Height + safe area padding for iOS home indicator */
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-    min-height: 64px;
-  }
-
-  /* WHATSAPP FAB — hidden on mobile (Chat tab in bottom nav) */
-  .whatsapp-fab {
-    display: none !important;
-  }
-
-  /* CATEGORY SECTION */
-  .category-section {
-    display: block;
-    position: relative;
-    z-index: 4;
-  }
-
-  /* SCROLL HINT */
-  .scroll-hint {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 12px;
-    animation: bounce 2s infinite;
-    z-index: 3;
-  }
-
-  .scroll-hint-arrow {
-    font-size: 20px;
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50%       { transform: translateX(-50%) translateY(6px); }
-  }
-
-  /* NAV */
-  .nav-wrapper {
-    padding: 10px 16px !important;
-    align-items: center !important;
-  }
-
-  .nav-logo {
-    height: 80px !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-  }
-
-  /* Show hamburger, hide desktop menu */
-  .nav-hamburger {
-    display: inline-flex !important;
-    /* Ensure 44px touch target */
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .nav-menu-desktop {
-    display: none !important;
-  }
-
-  /* Desktop nav links — 44px touch target */
-  .nav-menu-desktop a {
-    min-height: 44px;
-    padding: 0 8px;
-  }
-
-  /* HERO — 75vh on mobile so content below is hinted */
-  .hero-section-mobile {
-    min-height: 75vh !important;
-  }
-
-  .hero-content {
-    padding: 0 20px !important;
-  }
-
-  .hero-subtitle {
-    font-size: 15px !important;
-  }
-
-  .hero-title {
-    font-size: 32px !important;
-    line-height: 1.15 !important;
-  }
-
-  .hero-title-sub {
-    font-size: 24px !important;
-  }
-
-  /* OPTIONS SECTION */
-  .options-section {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    padding: 0 !important;
-  }
-
-  .options-container {
-    flex-direction: column !important;
-    border-radius: 0 !important;
-  }
-
-  .options-green {
-    width: 100% !important;
-    padding: 36px 20px !important;
-  }
-
-  .options-col {
-    width: 100% !important;
-    padding: 28px 20px !important;
-  }
-
-  /* Buttons in options — full width on mobile, 48px tall */
-  .options-col a {
-    display: block !important;
-    text-align: center !important;
-    min-height: 48px !important;
-    padding: 14px 20px !important;
-    font-size: 15px !important;
-  }
-
-  /* SECTIONS */
-  .section-padded {
-    padding: 56px 20px !important;
-  }
-
-  .section-h2 {
-    font-size: 24px !important;
-    margin-bottom: 28px !important;
-    line-height: 1.3 !important;
-  }
-
-  /* HOW IT WORKS CARDS */
-  .how-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: auto !important;
-    padding: 28px 20px !important;
-  }
-
-  /* Card CTAs — full width, 48px tall */
-  .how-card a {
-    display: block !important;
-    text-align: center !important;
-    min-height: 48px !important;
-    padding: 14px 20px !important;
-    width: 100% !important;
-  }
-
-  /* TESTIMONIAL CARDS */
-  .review-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 24px 20px !important;
-  }
-
-  /* CONTRACTOR BOXES */
-  .contractor-box {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: auto !important;
-  }
-
-  /* Contractor CTAs — 48px tall */
-  .contractor-box a {
-    min-height: 48px !important;
-    padding: 14px 20px !important;
-    text-align: center !important;
-  }
-
-  /* BOOKING PAGE */
-  .book-main {
-    padding-top: 100px !important;
-    align-items: flex-start !important;
-  }
-
-  .book-card {
-    padding: 28px 20px !important;
-  }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f9f5ff;
+  color: #2b2a51;
+  line-height: 1.6;
 }
